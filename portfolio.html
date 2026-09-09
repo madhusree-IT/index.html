@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Madhu Sree - Data Analyst Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2563eb;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --border: #e2e8f0;
+            --text: #334155;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: #ffffff;
+        }
+
+        /* Navigation & Header */
+        header {
+            background: white;
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--dark);
+            text-decoration: none;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        nav a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            padding: 6rem 2rem;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+            line-height: 1.1;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            line-height: 1.8;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #1d4ed8;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Main Content */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        section {
+            padding: 4rem 2rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        section:last-child {
+            border-bottom: none;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            color: var(--dark);
+            margin-bottom: 3rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--primary);
+        }
+
+        /* About Section */
+        #about {
+            background: var(--light);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text p {
+            margin-bottom: 1rem;
+            line-height: 1.8;
+            color: var(--text);
+        }
+
+        .skills-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .skill-tag {
+            background: white;
+            padding: 0.75rem 1rem;
+            border-radius: 0.5rem;
+            border: 1px solid var(--border);
+            color: var(--text);
+            font-size: 0.95rem;
+            text-align: center;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 0.75rem;
+            padding: 2rem;
+            transition: all 0.3s;
+        }
+
+        .project-card:hover {
+            border-color: var(--primary);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1rem;
+        }
+
+        .project-title {
+            font-size: 1.5rem;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .project-badge {
+            background: var(--primary);
+            color: white;
+            padding: 0.35rem 0.75rem;
+            border-radius: 0.35rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .project-description {
+            color: var(--text);
+            margin: 1rem 0;
+            line-height: 1.7;
+        }
+
+        .project-problem {
+            background: var(--light);
+            padding: 1rem;
+            border-left: 3px solid var(--primary);
+            margin: 1rem 0;
+            font-size: 0.95rem;
+        }
+
+        .project-problem strong {
+            color: var(--dark);
+        }
+
+        .project-insights {
+            background: #f0fdf4;
+            padding: 1rem;
+            border-left: 3px solid #22c55e;
+            margin: 1rem 0;
+            font-size: 0.95rem;
+        }
+
+        .project-insights strong {
+            color: var(--dark);
+        }
+
+        .project-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .tech-tag {
+            background: var(--light);
+            color: var(--primary);
+            padding: 0.4rem 0.8rem;
+            border-radius: 0.35rem;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .project-links a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .project-links a:hover {
+            transform: translateX(4px);
+        }
+
+        /* Skills Section */
+        #skills {
+            background: var(--light);
+        }
+
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            border: 1px solid var(--border);
+        }
+
+        .skill-category h3 {
+            color: var(--dark);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .skill-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .skill-item {
+            background: var(--light);
+            color: var(--text);
+            padding: 0.5rem 1rem;
+            border-radius: 0.35rem;
+            font-size: 0.9rem;
+        }
+
+        /* Contact Section */
+        #contact {
+            text-align: center;
+            background: var(--light);
+        }
+
+        .contact-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-content p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            color: var(--text);
+        }
+
+        .contact-methods {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .contact-method {
+            background: white;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            border: 1px solid var(--border);
+        }
+
+        .contact-method a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .contact-method a:hover {
+            text-decoration: underline;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .social-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            padding: 0.75rem 1.5rem;
+            border: 2px solid var(--primary);
+            border-radius: 0.5rem;
+            transition: all 0.2s;
+        }
+
+        .social-link:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-list {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            section {
+                padding: 2rem 1rem;
+            }
+        }
+
+        /* Animations */
+        @media (prefers-reduced-motion: no-preference) {
+            .project-card {
+                animation: fadeIn 0.6s ease-out;
+            }
+
+            @keyframes fadeIn {
+                from {
+                    opacity: 0;
+                    transform: translateY(10px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <header>
+        <nav>
+            <a href="#" class="logo">Madhu Sree</a>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Madhu Sree</h1>
+            <p class="hero-subtitle">Data Analyst & Python Developer</p>
+            <p>Transforming raw data into actionable insights through analysis, visualization, and machine learning. Building data-driven solutions that solve real business problems.</p>
+            <div class="cta-buttons">
+                <a href="#projects" class="btn btn-primary">View My Work</a>
+                <a href="https://github.com/madhusree-IT" target="_blank" class="btn btn-secondary">GitHub</a>
+            </div>
+        </div>
+    </section>
+
+    <main>
+        <!-- About Section -->
+        <section id="about">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>I'm a second-year B.Sc. Information Technology student with a strong interest in data analytics and business intelligence. I have a passion for uncovering patterns in data and transforming them into meaningful business insights.</p>
+                    <p>I enjoy working across the full analytics stack—from data cleaning and exploration to predictive modeling and interactive dashboard creation. My goal is to help organizations make data-driven decisions that drive real impact.</p>
+                    <p>When I'm not coding, you'll find me exploring new data analysis techniques or diving deeper into Python and SQL optimization.</p>
+                </div>
+                <div>
+                    <h3 style="color: var(--dark); margin-bottom: 1.5rem;">Core Skills</h3>
+                    <div class="skills-list">
+                        <div class="skill-tag">Python</div>
+                        <div class="skill-tag">SQL</div>
+                        <div class="skill-tag">Pandas</div>
+                        <div class="skill-tag">NumPy</div>
+                        <div class="skill-tag">Plotly</div>
+                        <div class="skill-tag">Seaborn</div>
+                        <div class="skill-tag">Matplotlib</div>
+                        <div class="skill-tag">Power BI</div>
+                        <div class="skill-tag">Tableau</div>
+                        <div class="skill-tag">Streamlit</div>
+                        <div class="skill-tag">Scikit-learn</div>
+                        <div class="skill-tag">Git/GitHub</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="projects-grid">
+                <!-- Project 1: Churn Analysis -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <div>
+                            <h3 class="project-title">Customer Churn Analysis & Prediction</h3>
+                        </div>
+                        <span class="project-badge">End-to-End</span>
+                    </div>
+
+                    <p class="project-description">
+                        Developed a comprehensive data analytics project that analyzes customer churn patterns and predicts future churn using machine learning. Created interactive visualizations and a business intelligence dashboard to communicate findings and support customer retention strategies.
+                    </p>
+
+                    <div class="project-problem">
+                        <strong>Problem:</strong> Companies often have customer data but struggle to identify why customers are leaving or which ones are at risk. This lack of insight makes it difficult to implement effective retention strategies.
+                    </div>
+
+                    <div>
+                        <h4 style="color: var(--dark); margin: 1rem 0 0.75rem;">Approach & Methodology</h4>
+                        <p style="font-size: 0.95rem; color: var(--text);">
+                            Data collection → Data cleaning & preprocessing → Exploratory Data Analysis (EDA) → Feature engineering → Machine learning model training → Model evaluation → Business visualization & Dashboard creation
+                        </p>
+                    </div>
+
+                    <div class="project-insights">
+                        <strong>Key Findings:</strong> Identified critical churn patterns through EDA revealing that contract type, tenure, and monthly charges significantly influence churn behavior. Developed ML model for churn prediction and created interactive dashboard to help business prioritize customer retention efforts.
+                    </div>
+
+                    <div class="project-meta">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Pandas</span>
+                        <span class="tech-tag">NumPy</span>
+                        <span class="tech-tag">Scikit-learn</span>
+                        <span class="tech-tag">Matplotlib</span>
+                        <span class="tech-tag">Seaborn</span>
+                        <span class="tech-tag">Power BI</span>
+                    </div>
+
+                    <div class="project-links">
+                        <a href="https://github.com/madhusree-IT/customer-churn-analytics" target="_blank">View Repository →</a>
+                    </div>
+                </div>
+
+                <!-- Project 2: Add More Projects Here -->
+                <div class="project-card" style="opacity: 0.6; border-style: dashed;">
+                    <h3 class="project-title" style="color: var(--text);">Your Next Project</h3>
+                    <p style="color: var(--text);">Add your other projects here in the same format. Edit this file and add project cards for your other analyses and dashboards.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills">
+            <h2 class="section-title">Skills & Technologies</h2>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3>Data Analysis & Wrangling</h3>
+                    <div class="skill-items">
+                        <span class="skill-item">Pandas</span>
+                        <span class="skill-item">NumPy</span>
+                        <span class="skill-item">Polars</span>
+                        <span class="skill-item">DuckDB</span>
+                        <span class="skill-item">PyArrow</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Visualization & BI</h3>
+                    <div class="skill-items">
+                        <span class="skill-item">Power BI</span>
+                        <span class="skill-item">Tableau</span>
+                        <span class="skill-item">Plotly</span>
+                        <span class="skill-item">Matplotlib</span>
+                        <span class="skill-item">Seaborn</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Machine Learning & Stats</h3>
+                    <div class="skill-items">
+                        <span class="skill-item">Scikit-learn</span>
+                        <span class="skill-item">SciPy</span>
+                        <span class="skill-item">Statsmodels</span>
+                        <span class="skill-item">EDA</span>
+                        <span class="skill-item">Predictive Modeling</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Programming & Databases</h3>
+                    <div class="skill-items">
+                        <span class="skill-item">Python</span>
+                        <span class="skill-item">SQL</span>
+                        <span class="skill-item">Git/GitHub</span>
+                        <span class="skill-item">Streamlit</span>
+                        <span class="skill-item">Pydantic</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-content">
+                <p>Interested in discussing data analytics projects or collaborating? Feel free to reach out—I'd love to connect!</p>
+                <div class="contact-methods">
+                    <div class="contact-method">
+                        <strong>Email</strong><br>
+                        <a href="mailto:madhuu.27777@gmail.com">madhuu.27777@gmail.com</a>
+                    </div>
+                    <div class="contact-method">
+                        <strong>Phone</strong><br>
+                        <a href="tel:+917305146127">+91 7305 146 127</a>
+                    </div>
+                </div>
+
+                <div class="social-links">
+                    <a href="https://github.com/madhusree-IT" target="_blank" class="social-link">GitHub</a>
+                    <a href="https://www.linkedin.com/in/madhu-undefined-0a4357435/" target="_blank" class="social-link">LinkedIn</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Madhu Sree. All rights reserved.</p>
+    </footer>
+</body>
+</html>
